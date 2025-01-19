@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import { Button, CssBaseline, ThemeProvider, createTheme } from "@mui/material";
+import { RouterProvider } from "react-router-dom";
+import router from "./component/Routes";
 function App() {
+  const darktheme = createTheme({
+    palette: {
+      mode: "dark",
+    },
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ThemeProvider theme={darktheme}>
+        <CssBaseline />
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </>
   );
 }
 
